@@ -14,4 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name : Print Title of PR
-      run: echo The Title of your PR is ${{ github.event.pull_request.title }}
+      run: echo The Title of your PR is ${{ github.event.pull_request.title }}.
+    - name : Check Title
+      run: if [[ ${{ github.event.pull_request.title }} =~ "(MTM-)\d\d\d\d" ]] ; then echo Passed - The Title has correct format.; else echo Failed - The Title has incorrect format.; exit 1; fi
