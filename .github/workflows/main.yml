@@ -1,0 +1,17 @@
+name: PR_Title_Check
+
+on:
+  workflow_call:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+        
+jobs:
+  print_title_of_pr:
+    runs-on: ubuntu-latest
+    steps:
+    - name : Print Title of PR
+      run: echo The Title of your PR is ${{ github.event.pull_request.title }}
