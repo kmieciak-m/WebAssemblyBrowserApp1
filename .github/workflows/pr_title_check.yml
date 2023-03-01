@@ -13,5 +13,9 @@ jobs:
   check_title_of_pr:
     runs-on: ubuntu-latest
     steps:
+    - name : Print Title of PR
+      run: |
+          title=$(echo "${{ github.event.pull_request.title }}" | sed 's/[^a-zA-Z0-9] //g')
+          echo "The title of your PR is $title"
     - name : Assert Title
       run: if [[ "${{ github.event.pull_request.title }}" =~ (MTM-)[0-9]{4}([^0-9]|$) ]]; then echo Passed - The Title has correct format.; else echo Failed - The Title has incorrect format.; exit 1; fi
