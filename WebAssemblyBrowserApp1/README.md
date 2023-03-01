@@ -24,3 +24,5 @@ Or you can start any static file server from the AppBundle directory:
 dotnet tool install dotnet-serve
 dotnet serve -d:bin/$(Configuration)/net7.0/browser-wasm/AppBundle
 ```
+
+# Test
